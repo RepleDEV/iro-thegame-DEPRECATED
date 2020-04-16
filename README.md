@@ -6,6 +6,7 @@ Clone this repository, cd into it, and run npm i
 
 ```bash
 git clone https://github.com/RepleDEV/iro-thegame
+cd iro-thegame
 npm i
 ``` 
 ## Usage
