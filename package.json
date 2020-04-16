@@ -1,0 +1,15 @@
+{
+  "name": "iro",
+  "version": "0.8.5",
+  "description": "iro. The color match game. Still in beta testing. Expected release: 30/4/2020.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "repleDev",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

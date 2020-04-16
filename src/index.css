@@ -1,0 +1,207 @@
+@keyframes float {
+    0% {
+        transform: translateY(0px)
+    }
+    50%{
+        transform:translateY(-4px)
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+button{
+    margin:2px;
+    border: 2px solid rgba(255, 255, 255, 0.842);
+    background-color: rgba(0, 0, 0, 0.363);
+    color:white;
+    height: 2.3rem;
+    width: 160px;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar{
+    width: 4.20px;
+}
+
+::-webkit-scrollbar-track{
+    background: rgb(32, 32, 32);
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    background: rgb(114, 114, 114);
+}
+
+body{
+
+    font-size: 16px;
+    --bgcolor: #1f1f1f;
+    --accentClr:#ff4800;
+    --divbgcolor:#292929;
+    height: 100%;
+    margin:0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: var(--bgcolor);
+    text-align: center;
+}
+h1{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 62px;
+    font-weight: 120;
+    color:white;
+}
+hr {
+    transition-duration: 1800ms;
+    transition-timing-function: ease-in-out;
+}
+*{
+    text-align: center;
+    outline: none;
+}
+P{
+    color:white;
+    font-family: 'Comfortaa', cursive;
+}
+#sliders{
+    width: 100%;
+}
+.sliders{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 200px;
+    height: 25px;
+    background: rgba(0, 0, 0, 0.363);
+    opacity: 0.65;
+    transition-duration: 200ms;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.308);
+}
+.sliders::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 8px;
+    height: 20px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.sliders::-moz-range-thumb{
+    width: 10px;
+    height: 22px;
+    background: yellow;
+    cursor: pointer;
+}
+.sliderGreen::-webkit-slider-thumb{
+    background: rgb(0, 255, 0);
+}
+.sliderBlue::-webkit-slider-thumb{
+    background: blue;
+}
+.sliderRed::-webkit-slider-thumb{
+    background: red;
+}
+.sliders:hover{opacity: 1;}
+#colorPreview{
+    display: inline-block;
+    height:4rem;
+    width:8rem;
+}
+.hidden{
+    display:none;
+}
+.startMenu{
+    transition-duration: 4.2s;
+    transition-timing-function: ease-in;
+    display: block;
+    opacity: 0;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+    padding:0;
+    margin: 0;
+}
+#clickInfo{
+    transition-duration: 3.2s;
+    transition-timing-function: ease-in;
+    opacity: 0;
+    animation: float 4s normal infinite;
+}
+#startGame{
+    text-align: center;
+    margin: 0 auto;
+    display:block;
+    background-color: red;
+}
+#mainMenu{
+    display: inline-block;
+    opacity: 0;
+}
+.bg {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 44rem;
+    width: 72%;
+    z-index: 2;
+    display: block;
+
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.7);
+    
+    border: 4px solid rgba(0, 0, 0, 0.548);
+    border-radius: 8px;
+
+    margin-bottom: 2rem;
+}
+.colorValues{
+    width: 2.4rem;
+    border:2px solid white;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.363);
+    color:white
+}
+#helpBtn{
+    width: 2rem;
+    height: 2rem;
+}
+#helpText{
+    transition-duration: 400ms;
+    transition-timing-function: ease;
+
+    display:none;
+}
+.verInfo {
+    font-size: 11px;
+}
+.subMenu {
+    transition-duration: 400ms;
+    display:none;
+}
+.dropDown {
+    position:relative;
+    display: inline-block;
+}
+.diffMenu{
+    transition-duration: 200ms;
+    opacity: 0;
+    display:none;
+    position:absolute;
+    background-color:#f1f1f1;
+    min-width: 10rem;
+    z-index:1;
+    border-radius: 4px;
+}
+.diffMenu a {
+    color:black;
+    padding:12px 16px;
+    text-decoration: none;
+    display:block;
+    font-family: 'Comfortaa', cursive;
+}
+.show{
+    display:block;
+    opacity: 1;
+}

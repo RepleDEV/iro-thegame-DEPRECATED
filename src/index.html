@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
+    <link href='index.css' type='text/css' rel='stylesheet'>
+    <script src='index.js' defer></script>
+</head>
+<body id='body' onload='displayStartMenu()'>
+    <div class='bg'>
+    <div id ='startmenu' class='hidden'  onclick="hideStartMenu()" >
+        <h1 id='title'>iro</h1>
+        <hr id='hrStart'>
+        <p class='verInfo'>Version: <i>beta</i> 0.85</p>
+        <br>
+        <p id='clickInfo'>Click anywhere to start</p> 
+    </div>
+    <div class='subMenu' id='subMenu'>
+        <h1 id='title'>iro</h1>
+        <hr style='width:24rem;'>
+        <div class='dropDown'>
+        <button id='difficulty_btn' class='dropBtn'onclick='showDrop()'>Choose difficulty</button>
+        <div id='diffMenu' class='diffMenu'>
+            <a href="javascript:easyDiff()">Nothing yet!</a>
+        </div>
+        </div>
+    </div>
+    <div id='mainMenu' class='hidden'>
+        <h1>iro</h1> 
+        <hr id='hrMain'>
+        <p class='verInfo'>Version: <i>beta</i> 0.82</p>
+        <div id='colorPreview'>
+            
+        </div>
+        <br>
+        <div id='sliders'>
+            <button id='startgame'>Start</button>
+            <br>
+            <input type="range" value="0" class="sliders sliderRed" id='slider_red' min='0' max='255'><br>
+            <input type="range" value="0" class="sliders sliderGreen" id='slider_green' min='0' max='255'><br>
+            <input type="range" value="0" class="sliders sliderBlue" id='slider_blue'min='0' max='255'><br>
+            <br>
+            <input type="number" class='colorValues' style="text-align:left" id='input_R'>
+            <input type="number" class='colorValues' style="text-align:left"id='input_G'>
+            <input type="number" class='colorValues' style="text-align:left"id='input_B'>
+            <p id='result-output'>Status:R ;G ;B </p><br>
+        </div>
+        <br>
+        <br>
+        <button id='helpBtn'>?</button>
+        <div id='helpText'>
+            <p>Press the start button and you will be chosen a random color.<br> Slide the sliders or manually input your color into the input box <br>until your color and the color chosen by the computer match.<br> GLHF!</p>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
