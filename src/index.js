@@ -18,6 +18,71 @@ const helpTextDiv = document.getElementById('helpText');
 
 const outputText = document.getElementById('result-output');
 
+var color_bitrate = 0;
+
+function round(n , r, ceil) {
+    var acceptedNumbers = []
+
+    var high = 0;
+    var low = 0;
+
+    let i;
+
+    for (i = 0; i < (ceil / r); i++){
+        acceptedNumbers.push(i*r);
+    }
+
+    for (i = 0;i < acceptedNumbers.length; i++){
+        var num = acceptedNumbers[i];
+
+        if (num == n) {
+            return n;
+        }
+
+        if (num > n - r && !(num > n)) {
+            low = num;
+        }
+        else if (num < n + r && !(num < n)) {
+            high = num;
+        }
+    }
+
+    var diff = high - low;
+
+
+    if (parseInt(n.toString().charAt(n.toString.length + 1)) < diff / 2) {
+        return low;
+    } else {
+        return high;
+    }
+}
+
+function easyDiff(){
+    startGame();
+
+    color_bitrate = 4
+
+    slider_r.step = 256 / Math.pow(2, color_bitrate)
+    // console.log(slider_r.step);
+}
+function medDiff(){
+    startGame();
+
+    color_bitrate = 6;
+
+    slider_r.step = 256 / Math.pow(2, color_bitrate)
+    // console.log(slider_r.step);
+}
+function hardDiff() {
+    startGame();
+
+    color_bitrate = 8;
+
+    slider_r.step = 256 / Math.pow(2, color_bitrate)
+    // console.log(slider_r.step);
+}
+
+
 function randomColor() {
     const rng_r = Math.floor(Math.random() * 256);
     const rng_g = Math.floor(Math.random() * 256);
@@ -152,6 +217,8 @@ const displayStartMenu = () => {
 
     var delay = 1200
 
+    changeDisabilityStatus(true);
+
     subMenu.style.opacity = 0;
 
     startMenu.setAttribute('class', 'startMenu');
@@ -186,7 +253,12 @@ window.onclick = (event) => {
     }
 }
 
-function easyDiff(){
+function changeDisabilityStatus(status) {
+    slider_r.disabled = status; slider_g.disabled = status; slider_b.disabled = status;
+    inputValue_b.disabled = status;inputValue_r.disabled = status;inputValue_g.disabled = status;
+}
+
+function startGame() {
     subMenu.style.opacity = 0;
     subMenu.setAttribute('class', 'hidden');
     subMenu.style.display = 'none';
@@ -199,10 +271,6 @@ function easyDiff(){
     setTimeout(() => {
         document.getElementById('hrMain').style.width = '9.2rem';
     }, 400)
-}
-function medDiff(){
-    return;
-}
-function hardDiff() {
-    return;
+
+    changeDisabilityStatus(false);
 }

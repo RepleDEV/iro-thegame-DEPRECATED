@@ -1,6 +1,6 @@
 {
   "name": "iro",
-  "version": "0.8.5",
+  "version": "0.8.6R",
   "description": "iro. The color match game. Still in beta testing. Expected release: 30/4/2020.",
   "main": "index.js",
   "scripts": {
