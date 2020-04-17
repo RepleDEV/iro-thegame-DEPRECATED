@@ -10,7 +10,7 @@ Still in beta testing!
 Clone this repository, cd into it, and run npm i
 
 ```bash
-git clone https://github.com/RepleDEV/iro-thegame
+git clone https://github.com/RepleDEV/iro-thegame.git
 cd iro-thegame
 npm i
 ``` 
