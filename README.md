@@ -6,9 +6,10 @@ Iro. Match the color that the computer randomly generated with your color!
 Slide the R, G, and B sliders or input your own color! 
 
 ## Installation
-Download the latest release **(v1.1.0)** and run this command. (requires _node.js_ installed)
+Download the latest release **(v1.1.0)**, unzip the file, cd into it and run this command. (requires _node.js_ installed)
 
 ```bash
+cd <folder directory>
 npm i
 ``` 
 ## Usage
