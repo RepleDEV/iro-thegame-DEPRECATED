@@ -8,13 +8,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
     <link href='index.css' type='text/css' rel='stylesheet'>
     <script src='index.js' defer></script>
+    <link rel='icon' href='assets/icon.png'>
 </head>
 <body id='body' onload='displayStartMenu()'>
     <div class='bg'>
+        <div id='imgStart' style='opacity: 0;'>
+            <img src='assets/img.png' alt='logo.png'>
+        </div>
     <div id ='startmenu' class='hidden'  onclick="hideStartMenu()" >
         <h1 id='title'>iro</h1>
         <hr id='hrStart'>
-        <p class='verInfo'>Version: <i>beta</i> 0.86R</p>
+        <p class='verInfo'>Version: 1.1.0</p>
         <br>
         <p id='clickInfo'>Click anywhere to start</p> 
     </div>
@@ -24,8 +28,8 @@
         <div class='dropDown'>
         <button id='difficulty_btn' class='dropBtn'onclick='showDrop()'>Choose difficulty</button>
         <div id='diffMenu' class='diffMenu'>
-            <a href="javascript:hardDiff()">4 bit</a>
-            <a href="javascript:hardDiff()">6 bit</a>
+            <a href="javascript:easyDiff()">4 bit</a>
+            <a href="javascript:medDiff()">6 bit</a>
             <a href="javascript:hardDiff()">8 bit</a>
         </div>
         </div>
@@ -33,7 +37,7 @@
     <div id='mainMenu' class='hidden'>
         <h1>iro</h1> 
         <hr id='hrMain'>
-        <p class='verInfo'>Version: <i>beta</i> 0.82R</p>
+        <p class='verInfo'>Version: 1.1.0</p>
         <div id='colorPreview'>
             
         </div>
@@ -45,16 +49,16 @@
             <input type="range" value="0" class="sliders sliderGreen" id='slider_green' min='0' max='255'><br>
             <input type="range" value="0" class="sliders sliderBlue" id='slider_blue'min='0' max='255'><br>
             <br>
-            <input type="number" class='colorValues' style="text-align:left" id='input_R'>
-            <input type="number" class='colorValues' style="text-align:left"id='input_G'>
-            <input type="number" class='colorValues' style="text-align:left"id='input_B'>
-            <p id='result-output'>Status:R ;G ;B </p><br>
+            <input type="number" class='colorValues' style="text-align:left" id='input_R' min='0' max='255'>
+            <input type="number" class='colorValues' style="text-align:left"id='input_G' min='0' max='255'>
+            <input type="number" class='colorValues' style="text-align:left"id='input_B' min='0' max='255'>
+            <div id='statusColor'></div>
         </div>
         <br>
         <br>
         <button id='helpBtn'>?</button>
         <div id='helpText'>
-            <p>Press the start button and you will be chosen a random color.<br> Slide the sliders or manually input your color into the input box <br>until your color and the color chosen by the computer match.<br> GLHF!</p>
+            <p>Press the start button and you will be chosen a random color.<br> Slide the sliders or manually input your color into the input box <br>until your color and the color chosen by the computer match.<br>The box below the number inputs tell you how close you close you are <br>to the color. The whiter it is, the closer you are.<br> GLHF!</p>
         </div>
     </div>
     </div>

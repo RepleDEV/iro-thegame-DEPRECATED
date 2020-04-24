@@ -9,7 +9,14 @@
         transform: translateY(0px);
     }
 }
+img {
+    margin-top: 10rem;
+    margin-left:auto;margin-right: auto;
+    width: 20%;
+}
 button{
+    transition: box-shadow 120ms;
+
     margin:2px;
     border: 2px solid rgba(255, 255, 255, 0.842);
     background-color: rgba(0, 0, 0, 0.363);
@@ -18,7 +25,9 @@ button{
     width: 160px;
     border-radius: 4px;
 }
-
+button:hover{
+    box-shadow: 0px 0px 8px 1px white;
+}
 ::-webkit-scrollbar{
     width: 4.20px;
 }
@@ -32,7 +41,6 @@ button{
 }
 
 body{
-
     font-size: 16px;
     --bgcolor: #1f1f1f;
     --accentClr:#ff4800;
@@ -102,14 +110,15 @@ P{
 .sliders:hover{opacity: 1;}
 #colorPreview{
     display: inline-block;
-    height:4rem;
-    width:8rem;
+    height:5.2rem;
+    width:12rem;
+    border-radius: 3px;
 }
 .hidden{
     display:none;
 }
 .startMenu{
-    transition-duration: 4.2s;
+    transition-duration: 3.4s;
     transition-timing-function: ease-in;
     display: block;
     opacity: 0;
@@ -122,11 +131,16 @@ P{
     padding:0;
     margin: 0;
 }
+#imgStart{
+    transition-duration: 1.6s;
+    transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+}
 #clickInfo{
     transition-duration: 3.2s;
     transition-timing-function: ease-in;
     opacity: 0;
     animation: float 4s normal infinite;
+    cursor: pointer;
 }
 #startGame{
     text-align: center;
@@ -140,10 +154,10 @@ P{
 }
 .bg {
     position: absolute;
-    top: 60%;
+    top: 63%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 44rem;
+    height: 48rem;
     width: 72%;
     z-index: 2;
     display: block;
@@ -161,8 +175,11 @@ P{
     border:2px solid white;
     border-radius: 3px;
     background-color: rgba(0, 0, 0, 0.363);
-    color:white
+    color:white;
+
+    opacity:0.4;
 }
+.colorValues:hover{opacity:1;}
 #helpBtn{
     width: 2rem;
     height: 2rem;
@@ -172,6 +189,12 @@ P{
     transition-timing-function: ease;
 
     display:none;
+}
+#statusColor{
+    margin:0.75rem auto;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 0.6rem;
 }
 .verInfo {
     font-size: 11px;
@@ -204,4 +227,23 @@ P{
 .show{
     display:block;
     opacity: 1;
+}
+.disabledSlider {
+    cursor: not-allowed;
+}
+.disabledSlider:hover {
+    opacity: 1;
+    background-color: rgba(255, 0, 0, 0.363);
+}
+.disabledSlider::-webkit-slider-thumb{
+    cursor: not-allowed;
+    background: red;
+}
+.disabledInput {
+    cursor: not-allowed;
+}
+.disabledInput:hover{
+    opacity:1;
+    background-color: rgba(255, 0, 0, 0.363);
+    border-color: red;
 }
