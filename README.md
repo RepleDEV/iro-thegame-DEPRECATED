@@ -1,6 +1,6 @@
 # iro-thegame
 Iro, the game. Made using HTML, JS, and CSS. Quarantine project. Started in 04/15/2020. 
-Also available in [Heroku](iro-thegame.herokuapp.com).
+Also available in [Heroku](https://iro-thegame.herokuapp.com).
 
 Iro. Match the color that the computer randomly generated with your color!
 Slide the R, G, and B sliders or input your own color! 
@@ -16,7 +16,7 @@ npm i
 ```bash
 npm start
 ```
-And go to [localhost:3000](localhost:3000) on your browser (HAS TO BE THE SAME MACHINE THAT STARTED THE APP)
+And go to [localhost:3000](https://localhost:3000) on your browser (HAS TO BE THE SAME MACHINE THAT STARTED THE APP)
 
 ## Contributing
 For major changes, please open an issue to discuss the change.
