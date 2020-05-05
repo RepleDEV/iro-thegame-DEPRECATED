@@ -1,7 +1,7 @@
 {
-  "name": "iro",
-  "version": "1.1.0",
-  "description": "iro. The color match game. Still in beta testing. Expected release: 30/4/2020.",
+  "name": "iro-thegame",
+  "version": "2.0.06",
+  "description": "iro. The color match game.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -10,6 +10,7 @@
   "author": "repleDev",
   "license": "ISC",
   "dependencies": {
+    "@jaames/iro": "^5.1.8",
     "express": "^4.17.1"
   }
 }

@@ -12,11 +12,16 @@
 img {
     margin-top: 10rem;
     margin-left:auto;margin-right: auto;
-    width: 20%;
+    width: 28%;
+    border-radius: 12%;
+}
+html {
+    scroll-behavior: smooth;
 }
 button{
     transition: box-shadow 120ms;
-
+    transition: color 300ms;
+    transition: background-color 150ms;
     margin:2px;
     border: 2px solid rgba(255, 255, 255, 0.842);
     background-color: rgba(0, 0, 0, 0.363);
@@ -24,8 +29,11 @@ button{
     height: 2.3rem;
     width: 160px;
     border-radius: 4px;
+    font-family: 'Comfortaa',cursive;
 }
 button:hover{
+    background-color: white;
+    color:black;
     box-shadow: 0px 0px 8px 1px white;
 }
 ::-webkit-scrollbar{
@@ -39,7 +47,6 @@ button:hover{
     border-radius: 20px;
     background: rgb(114, 114, 114);
 }
-
 body{
     font-size: 16px;
     --bgcolor: #1f1f1f;
@@ -66,31 +73,33 @@ hr {
     text-align: center;
     outline: none;
 }
-P{
+P, label{
     color:white;
     font-family: 'Comfortaa', cursive;
 }
+label{text-align: left;}
 #sliders{
     width: 100%;
 }
 .sliders{
+    margin:0;
     -webkit-appearance: none;
     appearance: none;
     width: 200px;
-    height: 25px;
+    height: 32px;
     background: rgba(0, 0, 0, 0.363);
     opacity: 0.65;
     transition-duration: 200ms;
-    border-radius: 20px;
+    border-radius: 12px;
     border: 2px solid rgba(255, 255, 255, 0.308);
 }
 .sliders::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 8px;
-    height: 20px;
+    width: 10px;
+    height: 26px;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 4px;
 }
 .sliders::-moz-range-thumb{
     width: 10px;
@@ -113,6 +122,7 @@ P{
     height:5.2rem;
     width:12rem;
     border-radius: 3px;
+    border: solid 4px rgba(0, 0, 0, 0);
 }
 .hidden{
     display:none;
@@ -150,14 +160,15 @@ P{
 }
 #mainMenu{
     display: inline-block;
+    width: 62%;
     opacity: 0;
 }
 .bg {
     position: absolute;
-    top: 63%;
+    top: 73%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 48rem;
+    height: 56rem;
     width: 72%;
     z-index: 2;
     display: block;
@@ -171,6 +182,9 @@ P{
     margin-bottom: 2rem;
 }
 .colorValues{
+    transition: border-color 220ms;
+
+    margin-top: 1.8rem;
     width: 2.4rem;
     border:2px solid white;
     border-radius: 3px;
@@ -181,8 +195,12 @@ P{
 }
 .colorValues:hover{opacity:1;}
 #helpBtn{
+    transition: font-size 190ms;
     width: 2rem;
     height: 2rem;
+}
+#helpBtn:hover{
+    font-size: 18px;
 }
 #helpText{
     transition-duration: 400ms;
@@ -200,6 +218,7 @@ P{
     font-size: 11px;
 }
 .subMenu {
+    width: 100%;
     transition-duration: 400ms;
     display:none;
 }
@@ -224,6 +243,29 @@ P{
     display:block;
     font-family: 'Comfortaa', cursive;
 }
+.diffMenu a:hover{
+    background-color: rgb(43, 43, 43);
+}
+.ed:hover{
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    color:rgb(99, 248, 0);
+    text-shadow:0px 0px 4px rgb(99, 248, 0);
+}
+.md:hover{
+    color:rgb(255, 196, 0);
+    text-shadow:0px 0px 8px rgb(255, 196, 0);
+}
+.hd:hover{
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius:4px;
+    color:rgb(240, 0, 0);
+    text-shadow:0px 0px 12px rgb(240, 0, 0);
+}
+#colorPicker{
+    float:left;
+    margin-left:6rem;
+}
 .show{
     display:block;
     opacity: 1;
@@ -247,3 +289,8 @@ P{
     background-color: rgba(255, 0, 0, 0.363);
     border-color: red;
 }
+#input_R:hover{border-color: red;}
+#input_G:hover{border-color: rgb(0, 255, 0);}
+#input_B:hover{border-color: rgb(0,0,255);}
+.disabledSubmit{opacity:0.2;}
+.disabledSubmit:hover{background-color: black;cursor:not-allowed;}
