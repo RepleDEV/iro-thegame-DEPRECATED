@@ -6,10 +6,11 @@ Iro. Match the color that the computer randomly generated with your color!
 Slide the R, G, and B sliders or input your own color! 
 
 ## Installation
-Download the latest release **(v1.1.0)**, unzip the file, cd into it and run this command. (requires _node.js_ installed)
+Clone, cd, install, and play.
 
 ```bash
-cd <folder directory>
+git clone https://github.com/RepleDEV/iro-thegame.git
+cd iro-thegame
 npm i
 ``` 
 ## Usage
@@ -17,7 +18,8 @@ npm i
 ```bash
 npm start
 ```
-And go to [localhost:3000](https://localhost:3000) on your browser (HAS TO BE THE SAME MACHINE THAT STARTED THE APP)
+And go to [localhost:3000](https://localhost:3000) on your browser (HAS TO BE THE SAME MACHINE THAT STARTED THE APP).
+Or just run the index.html file in a browser. (Path should look something like this ../iro-thegame/src/index.thml)
 
 ## Contributing
 For major changes, please open an issue to discuss the change.
