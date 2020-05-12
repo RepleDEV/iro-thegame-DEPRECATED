@@ -1,6 +1,6 @@
 {
   "name": "iro-thegame",
-  "version": "2.0.06",
+  "version": "2.0.08",
   "description": "iro. The color match game.",
   "main": "app.js",
   "scripts": {

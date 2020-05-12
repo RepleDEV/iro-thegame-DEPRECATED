@@ -66,58 +66,58 @@ function round(n , r, ceil) { // n = number, r = the number it needs to round? c
     var high = 0; // High value
     var low = 0; // Low value
 
-    let i; // Index for for loop
+    let i; // Index for the for loops
 
     // Updates acceptedNumbers
-    for (i = 0; i < (ceil / r); i++){
-        acceptedNumbers.push(i*r);
-    }
+    for (i = 0; i < (ceil / r); i++)acceptedNumbers.push(i*r);
 
     // Updates high and low
     for (i = 0;i < acceptedNumbers.length; i++){
-        var num = acceptedNumbers[i];
+        var num = acceptedNumbers[i]; // Variable for the acceptedNumbers array
 
-        if (num == n) {
-            return n;
-        }
+        if (num == n)return n; // if "num" is the same as "n", return "n"
 
-        if (num > n - r && !(num > n)) {
-            low = num;
-        }
-        else if (num < n + r && !(num < n)) {
-            high = num;
-        }
+        // If "num" is higher than "n" - "r" AND num ISNT higher than "n", assign "low" as "num"
+        if (num > n - r && !(num > n))low = num;
+
+        // Else if "num" is lower than "n" + "r" AND "num" ISNT lower than "n", assign "high" as "num"
+        else if (num < n + r && !(num < n))high = num;
     }
 
     // difference between the high and low values
     var diff = high - low;
-    // returns if... yea it's hard to explain cuz it's a lot of math
-    return parseInt(n.toString().charAt(n.toString.length + 1)) < diff / 2 ? low : high;
+
+    return parseInt(n.toString().charAt(n.toString().length + 1)) < diff / 2 ? low : high;
 }
+
 // Checks if the user has selected extra options
 function checkExtraDifficulties(){
     // The extra difficulties
     var extraDifficulties = [extraDifficulties_border,extraDifficulties_indicator,extraDifficulties_submitBtn];
 
-    // Checks them
-    if (extraDifficulties[0].checked == true)enableBorder = true;
-    if (extraDifficulties[1].checked != true)enableIndicator = false;
-    if (extraDifficulties[2].checked == true)enableSubmit = true;
+    // Checks them difficulties
+    if (extraDifficulties[0].checked)enableBorder = true;
+    if (!extraDifficulties[1].checked)enableIndicator = false;
+    if (extraDifficulties[2].checked)enableSubmit = true;
 }
+
+function updateSteps(n){
+    slider_r.step = n;
+    slider_g.step = n;
+    slider_b.step = n;
+
+    inputValue_r.step = n;
+    inputValue_g.step = n;
+    inputValue_b.step = n;
+}
+
 // Easy difficulty
 function easyDiff(){
     startGame();
 
     color_bitrate = 4
     step = 256 / Math.pow(2, color_bitrate);
-
-    slider_r.step = step - 1;
-    slider_g.step = step - 1;
-    slider_b.step = step - 1;
-
-    inputValue_r.step = step - 1;
-    inputValue_g.step = step - 1;
-    inputValue_b.step = step - 1;
+    updateSteps(step - 1);
 
     checkExtraDifficulties();
 }
@@ -129,13 +129,7 @@ function medDiff(){
 
     step = 256 / Math.pow(2, color_bitrate);
 
-    slider_r.step = step - 1
-    slider_g.step = step - 1
-    slider_b.step = step - 1
-
-    inputValue_r.step = step - 1;
-    inputValue_g.step = step - 1;
-    inputValue_b.step = step - 1;
+    updateSteps(step - 1);
 
     checkExtraDifficulties();
 }
@@ -147,13 +141,7 @@ function hardDiff() {
 
     step = 256 / Math.pow(2, color_bitrate);
 
-    slider_r.step = step - 1
-    slider_g.step = step - 1
-    slider_b.step = step - 1
-
-    inputValue_r.step = step - 1;
-    inputValue_g.step = step - 1;
-    inputValue_b.step = step - 1;
+    updateStep(step - 1);
 
     checkExtraDifficulties();
 }
@@ -174,34 +162,14 @@ function updateStatus(v1,v2,v3) {
     var colors = [parseInt(bg_color_r),parseInt(bg_color_g),parseInt(bg_color_b)];
     var i;
     for (i = 0;i<colors.length;i++) {
-        if (colors[i] < randomizedColor[i])points[i] = (colors[i] * (256/randomizedColor[i])) / 256;
-        else if (colors[i] > randomizedColor[i])points[i] = (colors[i] / (256*randomizedColor[i])) * 256;
-        if (colors[i] == randomizedColor[i])points[i] = 1;
+        if (colors[i] >= randomizedColor[i])points[i] = 256 / (colors[i]/randomizedColor[i]);
+        else if (colors[i] < randomizedColor[i])points[i] = colors[i] * (256/randomizedColor[i]);
     }
-    var format = `rgb(`;
-    for (i = 0;i<points.length;i++){
-        if (points[i] < 1){
-            format += `${points[i] * 256},`;
-        }
-        else if (points[i] > 1 && points[i] < 2){
-            format += `${(2 - points[i]) * 256},`;
-        }
-        else if (points[i] > 2){
-            format += `0,`;
-        }
-        else if (points[i] == 1) {
-            format += `255,`;
-        } else if (points[i] == 0){
-            format += `0,`;
-        }
-    }
-    format = format.substring(0,format.length-1);
+    var format = `rgb(${points[0]},${points[1]},${points[2]}`;
     statusColor.style.backgroundColor = `${format})`
     score = 0;
-    for (i=0;i<colors.length;i++) if (colors[i] == randomizedColor[i]) score++; else return
-    if (score == 3 && !enableSubmit) {
-        endGame();
-    }
+    for (i=0;i<colors.length;i++) if (colors[i] == randomizedColor[i]) score++; else return;
+    (score == 3 && !enableSubmit) && endGame();
     return;
 }
 
@@ -221,7 +189,7 @@ function updateBackground(r,g,b) {
     r = r.toString();
     g = g.toString();
     b = b.toString();
-    body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+    body.style.backgroundColor = `rgb(${r},${g},${b})`;
 }
 
 // Updates the border (if the user selects the "border" extradifficulties)
@@ -234,6 +202,13 @@ function updateInput(element, value) {element.value = parseInt(value);} // Updat
 function updateSlider(slider, value) {slider.value = parseInt(value);} // Update slider
 function updatePicker(values){colorPicker.color.rgb = { r: parseInt(values[0]), g: parseInt(values[1]), b: parseInt(values[2])}} // Update color picker
 
+function updateElements() {
+    updateBackground(bg_color_r,bg_color_g,bg_color_b);
+    updateStatus(bg_color_r,bg_color_g,bg_color_b);
+    updatePicker([bg_color_r,bg_color_g,bg_color_b]);
+    updateBorder();
+}
+
 var randomizedColor = [0,0,0]; // Randomized color global var
 
 // Color values
@@ -244,62 +219,42 @@ var bg_color_b = 0; // Blue
 // If the submit button was clicked
 submitBtn.onclick = () => {
     // And the score is 3
-    if(score == 3)endGame(); // Endgame... /shrug
+    score == 3 && endGame(); // Endgame... /shrug
 }
 
 // Slider functions
 slider_r.oninput = () => { // Red slider
     bg_color_r = slider_r.value
-    updateBackground(bg_color_r,bg_color_g,bg_color_b);
     updateInput(inputValue_r,bg_color_r);
-    updateStatus(bg_color_r,bg_color_g,bg_color_b);
-    updateBorder();
-    updatePicker([bg_color_r,bg_color_g,bg_color_b]);
+    updateElements();
 }
 slider_g.oninput = () => { // Green slider
     bg_color_g = slider_g.value;
-    updateBackground(bg_color_r,bg_color_g,bg_color_b);
-    updateInput(inputValue_g,bg_color_g);
-    updateStatus(bg_color_r,bg_color_g,bg_color_b);
-    updateBorder();
-    updatePicker([bg_color_r,bg_color_g,bg_color_b]);
+    updateElements();
 }
 slider_b.oninput = () => { // Blue slider
     bg_color_b = slider_b.value;
-    updateBackground(bg_color_r,bg_color_g,bg_color_b);
-    updateInput(inputValue_b,bg_color_b);
-    updateStatus(bg_color_r,bg_color_g,bg_color_b);
-    updateBorder();
-    updatePicker([bg_color_r,bg_color_g,bg_color_b]);
+    updateElements();
 }
 
 // Input functions
 inputValue_r.oninput = () => { // Red input
     bg_color_r = inputValue_r.value;
     updateSlider(slider_r,bg_color_r);
-    updateBackground(bg_color_r,bg_color_g,bg_color_b);
     bg_color_r = inputValue_r.value !== "" ? inputValue_r.value.toString() : 0;
-    updateStatus(bg_color_r,bg_color_g,bg_color_b);
-    updateBorder();
-    updatePicker([bg_color_r,bg_color_g,bg_color_b]);
+    updateElements();
 }
 inputValue_g.oninput = () => { // Green input
     bg_color_g= inputValue_g.value;
-    updateSlider(slider_g,bg_color_g);
-    updateBackground(bg_color_r,bg_color_g,bg_color_b);
     bg_color_g = inputValue_g.value !== "" ? inputValue_g.value.toString() : 0;
-    updateStatus(bg_color_r,bg_color_g,bg_color_b);
-    updateBorder();
-    updatePicker([bg_color_r,bg_color_g,bg_color_b]);
+    updateSlider(slider_g,bg_color_g);
+    updateElements();
 }
 inputValue_b.oninput = () => { // Blue
     bg_color_b = inputValue_b.value;
     updateSlider(slider_b,bg_color_b);
-    updateBackground(bg_color_r,bg_color_g,bg_color_b);
     bg_color_b = inputValue_b.value !== "" ? inputValue_b.value.toString() : 0;
-    updateStatus(bg_color_r,bg_color_g,bg_color_b);
-    updateBorder();
-    updatePicker([bg_color_r,bg_color_g,bg_color_b]);
+    updateElements();
 }
 
 // If the start button is clilcked
@@ -330,8 +285,9 @@ startbtn.onclick = () => {
         updateBorder();
         color.rgb = { r: bg_color_r, g:bg_color_g, b:bg_color_b};
     });
-    if (!enableSubmit)submitBtn.disabled = true; // If enableSubmit is false, disable the button
-    else submitBtn.setAttribute('class', ''); // else, remove the "disabled" style
+    // If enableSubmit is false, disable the button
+    // else, remove the "disabled" style
+    !enableSubmit ? submitBtn.disabled= true : submitBtn.setAttribute('class', '');
 }
 
 // Function for hiding start menu
@@ -341,14 +297,15 @@ function hideStartMenu() {
     startMenu.setAttribute('class', 'hidden');
 
     subMenu.style.display = 'inline-block';
-    setTimeout(() => subMenu.style.opacity = 1, 10)
+    setTimeout(() => subMenu.style.opacity = 1, 10);
+
     extraDifficulties_indicator.checked = true;
 }
 
 function displayStartMenu() {
     setTimeout(() => window.scrollTo(0,0), 10); // So, there's this scrolling issue where when the page loads, it immediately scrolls to the bottom, and this was the only solution that i could think about.
 
-    const delay = 1200; // Animation delay
+    const DELAY = 1200; // Animation delay
 
     changeDisabilityStatus(true); // Disable sliders and inputs
 
@@ -363,7 +320,7 @@ function displayStartMenu() {
 
     setTimeout(() => {
         logoContainer.style.opacity = 1;
-    }, delay);
+    }, DELAY);
 
     setTimeout(() => {
         logoContainer.style.opacity = 0;
@@ -371,7 +328,7 @@ function displayStartMenu() {
         setTimeout(() => logoContainer.style.display = 'none', 400);
         setTimeout(() => startText.style.opacity = 1,800);
         setTimeout(() => startMenu.style.opacity = 1,1400);
-    }, delay + 1800);
+    }, DELAY + 1800);
 }
 
 // If the help button was clicked
@@ -389,12 +346,12 @@ helpBtn.onclick = () => {
 function showDrop() {document.getElementById('diffMenu').classList.toggle('show')};
 
 // Closes the dropdown if the user clicks out of the dropdown
-window.onclick = (event) => {
-    if (!event.target.matches('.dropBtn')){
+window.onclick = (e) => {
+    if (!e.target.matches('.dropBtn')){
         var dropDowns = document.getElementsByClassName('diffMenu');
         for (let i = 0; i < dropDowns.length; i++){
             let openDropdown = dropDowns[i];
-            if (openDropdown.classList.contains('show')) openDropdown.classList.remove('show')
+            openDropdown.classList.contains('show') && openDropdown.classList.remove('show');
         }
     }
 }
