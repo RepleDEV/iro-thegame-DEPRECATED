@@ -19,7 +19,7 @@ npm i
 npm start
 ```
 And go to [localhost:3000](https://localhost:3000) on your browser (HAS TO BE THE SAME MACHINE THAT STARTED THE APP).
-Or just run the index.html file in a browser. (Path should look something like this ../iro-thegame/src/index.thml)
+Or just run the index.html file in a browser. (Path should look something like this ../iro-thegame/src/index.html)
 
 ## Contributing
 For major changes, please open an issue to discuss the change.
