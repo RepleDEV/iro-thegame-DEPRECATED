@@ -1,0 +1,16 @@
+{
+  "name": "iro-thegame",
+  "version": "2.1.08",
+  "description": "iro. The color match game.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "repleDev",
+  "license": "ISC",
+  "dependencies": {
+    "@jaames/iro": "^5.1.8",
+    "express": "^4.17.1"
+  }
+}

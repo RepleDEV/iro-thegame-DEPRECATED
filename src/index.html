@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
+    <link href='index.css' type='text/css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+    <script src='index.js' defer></script>
+    <link rel='icon' href='assets/iro-favicon-bwver.png'>
+</head>
+<body id='body' onload='displayStartMenu()'>
+    <div class='bg'>
+        <div id='imgStart' style='opacity: 0;'>
+            <img src='assets/iro-frontlogo2.png' alt='logo.png'>
+        </div>
+    <div id ='startmenu' class='hidden'  onclick="hideStartMenu()" >
+        <h1 id='title'>iro</h1>
+        <hr id='hrStart'>
+        <p class='verInfo'>Version: 2.1.08</p>
+        <br>
+        <p id='clickInfo'>Click anywhere to start</p> 
+    </div>
+    <div class='subMenu' id='subMenu'>
+        <h1 id='title'>iro</h1>
+        <hr style='width:24rem;'>
+        <div class='dropDown'>
+        <button id='difficulty_btn' class='dropBtn'onclick='showDrop()'>Choose difficulty</button>
+        <div id='diffMenu' class='diffMenu'>
+            <a href="javascript:easyDiff()" class='ed'>4 bit</a>
+            <a href="javascript:medDiff()" class='md'>6 bit</a>
+            <a href="javascript:hardDiff()" class='hd'>8 bit</a>
+        </div>
+        </div>
+        <p>
+            4-Bit color: 4096 colors / 4096 combinations (2^(4*3))<br>
+            6-Bit color: 262144 colors / 262144 combinations (2^(6*3))<br>
+            8-Bit color: 16 Million colors / 16 Million combinations (4^(8*3))<br>
+        </p>
+        <br>
+        <p>Other options</p>
+        <div class='otherOptionsDiv' id='otherOptionsDiv'>
+            <input type="checkbox" id='border_checkbox' class='checkboxes' name='border_checkbox'>
+            <label for='border_checkbox'>Border</label><br>
+            <input type="checkbox" id='submit_checkbox' class='checkboxes' name='submit_checkbox'>
+            <label for='submit_checkbox'>Submit Button</label><br>
+            <input type="checkbox" id='indicator_checkbox' class='checkboxes' name='indicator_checkbox'>
+            <label for='indicator_checkbox'>Color Indicator</label>
+        </div>
+    </div>
+    <div id='mainMenu' class='hidden'>
+        <h1>iro</h1> 
+        <hr id='hrMain'>
+        <p class='verInfo'>Version: 2.1.08</p>
+        <div id='colorPreview'> </div>
+        <br>
+        <div id='colorInputs'>
+            <button id='startgame'>Start</button>
+            <br><br>
+            <div class='wheel' id='colorPicker'></div>
+            <input type="range" value="0" class="sliders sliderRed" id='slider_red' min='0' max='255'><br>
+            <input type="range" value="0" class="sliders sliderGreen" id='slider_green' min='0' max='255'><br>
+            <input type="range" value="0" class="sliders sliderBlue" id='slider_blue'min='0' max='255'><br>
+            <br>
+            <input type="number" class='colorValues' style="text-align:left" id='input_R' min='0' max='255'>
+            <input type="number" class='colorValues' style="text-align:left"id='input_G' min='0' max='255'>
+            <input type="number" class='colorValues' style="text-align:left"id='input_B' min='0' max='255'>
+        </div>
+        <br>
+        <button id ='submitBtn' class='disabledSubmit'>Submit</button>
+        <br>
+        <div id='statusColor'></div>
+        <br>
+        <br><br>
+        <div class='miniBtnContainer'>
+            <button id='helpBtn' class='miniBtn'>?</button>
+            <button id='creditBtn'class='miniBtn'>:3</button>
+        </div>
+        <div id='helpText'>
+            <p>Press the start button and you will be chosen a random color.<br> Slide the sliders or manually input your color into the input box <br>until your color and the color chosen by the computer match.<br>The box below the number inputs tell you how close you close you are <br>to the color. The whiter it is, the closer you are.<br> GLHF!</p>
+        </div>
+        <div id='creditText'>
+            <p>
+                Color picker by - <a href='https://iro.js.org' class='irojsLink'>iro.js</a>.<br>
+                Web framework: <i><a href='https://https://expressjs.com/' class='expressjsLink'>expressjs</a></i>.<br>
+                <a href='https://github.com/repledev/iro-thegame' class='githubLink'>GitHub repository</a><br><br>
+                Sound effects...soundtracks...? Quiet huh
+            </p>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
