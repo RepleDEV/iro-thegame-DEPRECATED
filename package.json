@@ -11,6 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "@jaames/iro": "^5.1.8",
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   }
 }
